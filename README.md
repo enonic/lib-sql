@@ -9,6 +9,11 @@ This is a library for accessing SQL databases from Enonic XP. It uses plain JDBC
 any database which there's a suitable driver.
 
 
+Compatibility
+-------------
+
+* Version ``0.5`` can be used with Enonic XP ``6.3.x``
+
 Usage
 -----
 
