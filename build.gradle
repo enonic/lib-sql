@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+    maven {
+        url 'http://repo.enonic.com/public'
+    }
+}
+
+dependencies {
+    compile 'com.enonic.xp:script-api:6.5.2'
+    compile 'org.jdbi:jdbi:2.71'
+    testCompile 'com.h2database:h2:1.4.190'
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.enonic.xp:testing:6.5.2'
+}
