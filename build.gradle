@@ -12,6 +12,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
+apply plugin: 'maven-publish'
 
 repositories {
     jcenter()
@@ -28,7 +29,6 @@ dependencies {
     testCompile 'com.enonic.xp:testing:6.5.2'
 }
 
-
 jacocoTestReport {
     reports {
         xml.enabled = true
@@ -42,3 +42,16 @@ task ci {}
 
 ci.dependsOn += 'build'
 ci.dependsOn += 'coveralls'
+
+publishing {
+    publications {
+        mavenJava( MavenPublication ) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url 'http://repo.enonic.net/artifactory/public'
+        }
+    }
+}
