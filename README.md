@@ -12,7 +12,9 @@ any database which there's a suitable driver.
 Compatibility
 -------------
 
-* Version ``0.5.0`` can be used with Enonic XP ``6.3.x``
+| Version | XP Version | Dependency                   |
+|---------|------------|------------------------------|
+| 0.5.0   | 6.3.x      | com.enonic.lib:lib-sql:0.5.0 |
 
 
 Usage
