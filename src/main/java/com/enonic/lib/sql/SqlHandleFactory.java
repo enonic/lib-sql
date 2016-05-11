@@ -4,38 +4,38 @@ import org.skife.jdbi.v2.DBI;
 
 public final class SqlHandleFactory
 {
-    private final DataSourceImpl dataSource;
+    private final ConnectionFactoryImpl connectionFactory;
 
     public SqlHandleFactory()
     {
-        this.dataSource = new DataSourceImpl();
+        this.connectionFactory = new ConnectionFactoryImpl();
     }
 
     public void setUrl( final String url )
     {
-        this.dataSource.setUrl( url );
+        this.connectionFactory.url = url;
     }
 
     public void setDriver( final String driver )
     {
-        this.dataSource.setDriver( driver );
+        this.connectionFactory.driver = driver;
     }
 
     public void setUser( final String user )
     {
-        this.dataSource.setUser( user );
+        this.connectionFactory.user = user;
     }
 
     public void setPassword( final String password )
     {
-        this.dataSource.setPassword( password );
+        this.connectionFactory.password = password;
     }
 
     public SqlHandle create()
         throws Exception
     {
-        this.dataSource.init();
-        final DBI dbi = new DBI( this.dataSource );
+        this.connectionFactory.init();
+        final DBI dbi = new DBI( this.connectionFactory );
         return new SqlHandle( dbi );
     }
 }
