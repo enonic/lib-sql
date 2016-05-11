@@ -1,5 +1,0 @@
-{
-  "name": "sql.js",
-  "description": "SQL library for Enonic XP.",
-  "main": "src/main/resources/site/lib/sql.js"
-}

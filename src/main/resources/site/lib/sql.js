@@ -47,12 +47,6 @@ Handle.prototype.execute = function (sql) {
     this.native.execute(sql);
 };
 
-/**
- * Connects to a database.
- *
- * @param params
- * @returns {Handle}
- */
 exports.connect = function (params) {
     var factory = __.newBean('com.enonic.lib.sql.SqlHandleFactory');
     factory.url = required(params, 'url');
