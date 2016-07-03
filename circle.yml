@@ -1,0 +1,10 @@
+machine:
+  java:
+    version: oraclejdk8
+general:
+  branches:
+    only:
+      - master # only build/deploy from master
+test:
+  override:
+    - ./gradlew test
