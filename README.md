@@ -80,3 +80,4 @@ You can then use this inside your javascript controller or other parts of your a
         }
 
     };
+
