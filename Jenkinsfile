@@ -1,6 +1,4 @@
 node {
-  for (int i=0; i< 2; ++i) {  
-    stage "Stage #"+i
-    print 'Hello, world $i!'
-  }
+  env.JAVA_HOME="${tool 'jdk8'}"
+  sh "./gradlew clean buld"
 }
