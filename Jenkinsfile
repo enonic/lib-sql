@@ -5,5 +5,5 @@ node {
   checkout scm
 
   stage 'build'
-  sh './gradlew clean buld'
+  sh './gradlew clean build'
 }
