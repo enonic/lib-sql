@@ -15,6 +15,7 @@ Compatibility
 | Version | XP Version | Dependency                   |
 |---------|------------|------------------------------|
 | 0.5.0   | 6.3.x      | com.enonic.lib:lib-sql:0.5.0 |
+| 0.6.0   | 6.8.x      | com.enonic.lib:lib-sql:0.6.0 |
 
 
 Usage
@@ -63,7 +64,9 @@ You can then use this inside your javascript controller or other parts of your a
         url: 'jdbc:h2:file:./build/tmp/data/db',
         driver: 'org.h2.Driver',
         user: 'sa',
-        password: 'password'
+        password: 'password',
+        maxPoolSize: 10,
+        minPoolSize: 0
     });
 
     // Output data from database in controller
