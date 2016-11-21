@@ -1,41 +1,29 @@
 package com.enonic.lib.sql;
 
-import org.skife.jdbi.v2.DBI;
+import java.util.List;
+
+import com.google.common.collect.Lists;
 
 public final class SqlHandleFactory
 {
-    private final ConnectionFactoryImpl connectionFactory;
+    private final List<SqlHandle> handles;
 
     public SqlHandleFactory()
     {
-        this.connectionFactory = new ConnectionFactoryImpl();
+        this.handles = Lists.newArrayList();
     }
 
-    public void setUrl( final String url )
+    public void dispose()
     {
-        this.connectionFactory.url = url;
+        this.handles.forEach( SqlHandle::dispose );
+        this.handles.clear();
     }
 
-    public void setDriver( final String driver )
-    {
-        this.connectionFactory.driver = driver;
-    }
-
-    public void setUser( final String user )
-    {
-        this.connectionFactory.user = user;
-    }
-
-    public void setPassword( final String password )
-    {
-        this.connectionFactory.password = password;
-    }
-
-    public SqlHandle create()
+    public SqlHandle create( final SqlSource source )
         throws Exception
     {
-        this.connectionFactory.init();
-        final DBI dbi = new DBI( this.connectionFactory );
-        return new SqlHandle( dbi );
+        final SqlHandle handle = new SqlHandle( source.newDataSource() );
+        this.handles.add( handle );
+        return handle;
     }
 }

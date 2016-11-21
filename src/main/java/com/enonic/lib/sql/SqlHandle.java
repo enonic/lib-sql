@@ -7,13 +7,18 @@ import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.Handle;
 import org.skife.jdbi.v2.Query;
 
+import com.zaxxer.hikari.HikariDataSource;
+
 public final class SqlHandle
 {
     private final DBI dbi;
 
-    public SqlHandle( final DBI dbi )
+    private final HikariDataSource dataSource;
+
+    public SqlHandle( final HikariDataSource dataSource )
     {
-        this.dbi = dbi;
+        this.dataSource = dataSource;
+        this.dbi = new DBI( this.dataSource );
     }
 
     public SqlResultMapper query( final String sql, final Integer limit )
@@ -57,5 +62,10 @@ public final class SqlHandle
         {
             handle.execute( sql );
         }
+    }
+
+    public void dispose()
+    {
+        this.dataSource.close();
     }
 }

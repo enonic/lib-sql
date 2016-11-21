@@ -2,6 +2,8 @@
  * @namespace sql
  */
 
+var factory = __.newBean('com.enonic.lib.sql.SqlHandleFactory');
+
 function required(params, name) {
     var value = params[name];
     if (value === undefined) {
@@ -11,9 +13,10 @@ function required(params, name) {
     return value;
 }
 
-function nullOrValue(value) {
+function optional(params, name, defValue) {
+    var value = params[name];
     if (value === undefined) {
-        return null;
+        return defValue;
     }
 
     return value;
@@ -48,10 +51,20 @@ Handle.prototype.execute = function (sql) {
 };
 
 exports.connect = function (params) {
-    var factory = __.newBean('com.enonic.lib.sql.SqlHandleFactory');
-    factory.url = required(params, 'url');
-    factory.driver = required(params, 'driver');
-    factory.user = params.user;
-    factory.password = params.password;
-    return new Handle(factory.create());
+    var source = __.newBean('com.enonic.lib.sql.SqlSource');
+    source.url = required(params, 'url');
+    source.driver = required(params, 'driver');
+    source.maxPoolSize = optional(params, 'maxPoolSize', 10);
+    source.minPoolSize = optional(params, 'minPoolSize', 0);
+    source.poolName = optional(params, 'poolName', null);
+    source.user = params.user;
+    source.password = params.password;
+    return new Handle(factory.create(source));
 };
+
+function dispose() {
+    factory.dispose();
+}
+
+exports.dispose = dispose;
+__.disposer(dispose);

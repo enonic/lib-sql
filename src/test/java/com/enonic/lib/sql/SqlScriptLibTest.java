@@ -8,6 +8,6 @@ public class SqlScriptLibTest
     @Override
     public String getScriptTestFile()
     {
-        return "site/lib/sql-test.js";
+        return "/lib/sql-test.js";
     }
 }

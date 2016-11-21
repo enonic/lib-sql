@@ -51,6 +51,7 @@ exports.testQuery = function () {
     };
 
     assert.assertJsonEquals(expected, result);
+    sqlLib.dispose();
 };
 
 exports.testQueryLimit = function () {
@@ -72,6 +73,7 @@ exports.testQueryLimit = function () {
     };
 
     assert.assertJsonEquals(expected, result);
+    sqlLib.dispose();
 };
 
 exports.testQueryFirst = function () {
@@ -83,6 +85,7 @@ exports.testQueryFirst = function () {
     };
 
     assert.assertJsonEquals(expected, result);
+    sqlLib.dispose();
 };
 
 exports.testUpdate = function () {
@@ -93,4 +96,5 @@ exports.testUpdate = function () {
 
     var result2 = handle.update("UPDATE test SET name='other' WHERE key > 1");
     assert.assertEquals(2, result2);
+    sqlLib.dispose();
 };
