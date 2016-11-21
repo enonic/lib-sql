@@ -1,17 +1,5 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3"
-    }
-}
-
 apply plugin: 'java'
 apply plugin: 'jacoco'
-apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'maven-publish'
 
 repositories {
@@ -22,11 +10,11 @@ repositories {
 }
 
 dependencies {
-    compile 'com.enonic.xp:script-api:6.5.2'
+    compile "com.enonic.xp:script-api:${xpVersion}"
     compile 'org.jdbi:jdbi:2.71'
     testCompile 'com.h2database:h2:1.4.190'
     testCompile 'junit:junit:4.12'
-    testCompile 'com.enonic.xp:testing:6.5.2'
+    testCompile "com.enonic.xp:testing:${xpVersion}"
 }
 
 jacocoTestReport {
@@ -37,11 +25,6 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
-
-task ci {}
-
-ci.dependsOn += 'build'
-ci.dependsOn += 'coveralls'
 
 publishing {
     publications {
