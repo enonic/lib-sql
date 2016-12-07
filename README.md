@@ -1,3 +1,5 @@
+<img align="right" src="https://rawgit.com/enonic/lib-sql/master/misc/logo.svg">
+
 SQL lib for Enonic XP
 =====================
 
