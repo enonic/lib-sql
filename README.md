@@ -59,7 +59,7 @@ dependencies {
     include 'com.enonic.lib:lib-sql:<version>'
     include 'com.h2database:h2:1.4.190'
 }
-``
+```
 
 You can then use this inside your javascript controller or other parts of your app. Here's an example of using it inside a controller:
 
