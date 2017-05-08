@@ -1,8 +1,0 @@
-machine:
-  java:
-    version: oraclejdk8
-dependencies:
-  override:
-    - export TERM="dumb"; ./gradlew compileJava compileTestJava
-  cache_directories:
-    - ~/.gradle

@@ -92,4 +92,3 @@ exports.get = function(req) {
 
 };
 ```
-
