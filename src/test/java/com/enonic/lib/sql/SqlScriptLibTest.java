@@ -1,6 +1,6 @@
 package com.enonic.lib.sql;
 
-import com.enonic.xp.testing.script.ScriptRunnerSupport;
+import com.enonic.xp.testing.ScriptRunnerSupport;
 
 public class SqlScriptLibTest
     extends ScriptRunnerSupport

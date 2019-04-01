@@ -1,6 +1,8 @@
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'maven-publish'
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'maven-publish'
+}
 
 repositories {
     jcenter()
@@ -16,6 +18,7 @@ dependencies {
 
     testCompile 'com.h2database:h2:1.4.190'
     testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:+'
     testCompile "com.enonic.xp:testing:${xpVersion}"
 }
 
@@ -28,15 +31,3 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
-publishing {
-    publications {
-        mavenJava( MavenPublication ) {
-            from components.java
-        }
-    }
-    repositories {
-        maven {
-            url 'http://repo.enonic.net/artifactory/public'
-        }
-    }
-}

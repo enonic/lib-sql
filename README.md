@@ -16,6 +16,7 @@ Compatibility
 |---------|------------|------------------------------|
 | 0.5.0   | 6.3.x      | com.enonic.lib:lib-sql:0.5.0 |
 | 0.6.0   | 6.8.x      | com.enonic.lib:lib-sql:0.6.0 |
+| 1.0.0   | 7.0.0      | com.enonic.lib:lib-sql:1.0.0 |
 
 
 Usage
