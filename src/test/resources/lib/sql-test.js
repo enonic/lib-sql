@@ -1,5 +1,5 @@
 var sqlLib = require('/lib/sql');
-var assert = require('/lib/xp/assert');
+var assert = require('/lib/xp/testing');
 
 function connect() {
     return sqlLib.connect({

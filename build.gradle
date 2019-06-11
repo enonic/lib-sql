@@ -1,21 +1,24 @@
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'maven-publish'
+plugins {
+    id 'java'
+    id 'jacoco'
+    id 'maven-publish'
+    id 'com.enonic.defaults' version '2.0.1'
+    id 'com.enonic.xp.base' version '2.0.0'
+}
 
 repositories {
     jcenter()
-    maven {
-        url 'http://repo.enonic.com/public'
-    }
+    xp.enonicRepo()
 }
 
 dependencies {
     compile "com.enonic.xp:script-api:${xpVersion}"
-    compile 'org.jdbi:jdbi:2.71'
-    compile 'com.zaxxer:HikariCP:2.5.1'
+    compile 'org.jdbi:jdbi:2.78'
+    compile 'com.zaxxer:HikariCP:3.3.1'
 
-    testCompile 'com.h2database:h2:1.4.190'
+    testCompile 'com.h2database:h2:1.4.199'
     testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.+'
     testCompile "com.enonic.xp:testing:${xpVersion}"
 }
 
@@ -28,15 +31,3 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
-publishing {
-    publications {
-        mavenJava( MavenPublication ) {
-            from components.java
-        }
-    }
-    repositories {
-        maven {
-            url 'http://repo.enonic.net/artifactory/public'
-        }
-    }
-}
