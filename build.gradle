@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile "com.enonic.xp:script-api:${xpVersion}"
+    compileOnly "com.enonic.xp:script-api:${xpVersion}"
     compile 'org.jdbi:jdbi:2.78'
     compile 'com.zaxxer:HikariCP:3.3.1'
 
