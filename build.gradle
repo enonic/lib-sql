@@ -18,7 +18,7 @@ dependencies {
 
     testCompile 'com.h2database:h2:1.4.200'
     testCompile 'junit:junit:4.13.2'
-    testCompile 'org.mockito:mockito-core:4.5.0'
+    testCompile 'org.mockito:mockito-core:4.6.0'
     testCompile "com.enonic.xp:testing:${xpVersion}"
 }
 
