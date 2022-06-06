@@ -16,7 +16,7 @@ dependencies {
     compile 'org.jdbi:jdbi:2.78'
     compile 'com.zaxxer:HikariCP:5.0.1'
 
-    testCompile 'com.h2database:h2:1.4.200'
+    testCompile 'com.h2database:h2:2.1.212'
     testCompile 'junit:junit:4.13.2'
     testCompile 'org.mockito:mockito-core:4.6.1'
     testCompile "com.enonic.xp:testing:${xpVersion}"
