@@ -13,19 +13,23 @@ repositories {
 
 dependencies {
     compileOnly "com.enonic.xp:script-api:${xpVersion}"
-    compile 'org.jdbi:jdbi:2.78'
-    compile 'com.zaxxer:HikariCP:5.0.1'
+    implementation 'org.jdbi:jdbi:2.78'
+    implementation 'com.zaxxer:HikariCP:5.0.1'
 
-    testCompile 'com.h2database:h2:1.4.200'
-    testCompile 'junit:junit:4.13.2'
-    testCompile 'org.mockito:mockito-core:5.2.0'
-    testCompile "com.enonic.xp:testing:${xpVersion}"
+    testImplementation 'com.h2database:h2:1.4.200'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.2.0'
+    testImplementation "com.enonic.xp:testing:${xpVersion}"
 }
 
 jacocoTestReport {
     reports {
-        xml.enabled = true
-        html.enabled = true
+        xml {
+            enabled true
+        }
+        html {
+            enabled true
+        }
     }
 }
 
