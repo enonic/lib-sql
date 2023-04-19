@@ -12,7 +12,7 @@ function connect() {
 
 function createTable(handle) {
     handle.execute('DROP TABLE IF EXISTS test');
-    handle.execute('CREATE TABLE test (key integer, name varchar(32))');
+    handle.execute('CREATE TABLE test (`key` integer, name varchar(32))');
 }
 
 function insertData(handle) {
@@ -91,10 +91,10 @@ exports.testQueryFirst = function () {
 exports.testUpdate = function () {
     var handle = connectAndPrepare();
 
-    var result1 = handle.update("UPDATE test SET name='other' WHERE key = 1");
+    var result1 = handle.update("UPDATE test SET name='other' WHERE `key` = 1");
     assert.assertEquals(1, result1);
 
-    var result2 = handle.update("UPDATE test SET name='other' WHERE key > 1");
+    var result2 = handle.update("UPDATE test SET name='other' WHERE `key` > 1");
     assert.assertEquals(2, result2);
     sqlLib.dispose();
 };

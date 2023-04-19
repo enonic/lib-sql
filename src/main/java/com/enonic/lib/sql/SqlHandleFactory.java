@@ -1,8 +1,7 @@
 package com.enonic.lib.sql;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.collect.Lists;
 
 public final class SqlHandleFactory
 {
@@ -10,7 +9,7 @@ public final class SqlHandleFactory
 
     public SqlHandleFactory()
     {
-        this.handles = Lists.newArrayList();
+        this.handles = new ArrayList<>();
     }
 
     public void dispose()
