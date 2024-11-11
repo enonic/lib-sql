@@ -14,7 +14,7 @@ repositories {
 dependencies {
     compileOnly "com.enonic.xp:script-api:${xpVersion}"
     implementation 'org.jdbi:jdbi:2.78'
-    implementation 'com.zaxxer:HikariCP:6.0.0'
+    implementation 'com.zaxxer:HikariCP:6.1.0'
 
     testImplementation 'com.h2database:h2:2.3.232'
     testImplementation 'junit:junit:4.13.2'
