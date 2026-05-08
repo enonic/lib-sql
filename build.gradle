@@ -3,7 +3,7 @@ plugins {
     id 'jacoco'
     id 'maven-publish'
     id 'com.enonic.defaults' version '2.1.6'
-    id 'com.enonic.xp.base' version '3.6.2'
+    id 'com.enonic.xp.base'
 }
 
 repositories {
@@ -12,14 +12,19 @@ repositories {
 }
 
 dependencies {
-    compileOnly "com.enonic.xp:script-api:${xpVersion}"
+    compileOnly xplibs.api.script
     implementation 'org.jdbi:jdbi:2.78'
     implementation 'com.zaxxer:HikariCP:7.0.2'
 
     testImplementation 'com.h2database:h2:2.4.240'
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
     testImplementation 'org.mockito:mockito-core:5.23.0'
     testImplementation "com.enonic.xp:testing:${xpVersion}"
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 jacocoTestReport {
@@ -30,4 +35,3 @@ jacocoTestReport {
 }
 
 check.dependsOn jacocoTestReport
-
