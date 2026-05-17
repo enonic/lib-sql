@@ -13,12 +13,12 @@ repositories {
 
 dependencies {
     compileOnly xplibs.api.script
-    implementation 'org.jdbi:jdbi:2.78'
-    implementation 'com.zaxxer:HikariCP:7.0.2'
+    implementation libs.jdbi
+    implementation libs.hikaricp
 
-    testImplementation 'com.h2database:h2:2.4.240'
-    testImplementation 'org.junit.jupiter:junit-jupiter:6.0.3'
-    testImplementation 'org.mockito:mockito-core:5.23.0'
+    testImplementation libs.h2
+    testImplementation libs.junit.jupiter
+    testImplementation libs.mockito.core
     testImplementation "com.enonic.xp:testing:${xpVersion}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
