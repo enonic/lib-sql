@@ -2,7 +2,7 @@
 h2 = "2.4.240"
 hikaricp = "7.1.0"
 jdbi = "2.78"
-junit = "6.1.0"
+junit = "6.1.1"
 mockito = "5.23.0"
 
 [libraries]
