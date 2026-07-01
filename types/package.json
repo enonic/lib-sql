@@ -1,0 +1,33 @@
+{
+  "name": "@enonic-types/lib-sql",
+  "version": "0.0.0",
+  "description": "Type definitions for the Enonic XP SQL library",
+  "types": "index.d.ts",
+  "files": [
+    "*"
+  ],
+  "keywords": [
+    "enonic",
+    "enonic-xp",
+    "lib-sql",
+    "sql",
+    "jdbc",
+    "types",
+    "typescript"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/enonic/lib-sql#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enonic/lib-sql.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enonic/lib-sql/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@enonic-types/core": "^8.0.0"
+  }
+}
