@@ -1,28 +1,31 @@
 package com.enonic.lib.sql;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.enonic.xp.script.bean.BeanContext;
+import com.enonic.xp.script.bean.ScriptBean;
+
+import static java.util.Objects.requireNonNull;
 
 public final class SqlHandleFactory
+    implements ScriptBean
 {
-    private final List<SqlHandle> handles;
+    private SqlHandleRegistry registry;
 
-    public SqlHandleFactory()
+    @Override
+    public void initialize( final BeanContext context )
     {
-        this.handles = new ArrayList<>();
+        this.registry = requireNonNull( context.getService( SqlHandleRegistry.class ).get() );
     }
 
     public void dispose()
     {
-        this.handles.forEach( SqlHandle::dispose );
-        this.handles.clear();
+        this.registry.dispose();
     }
 
     public SqlHandle create( final SqlSource source )
         throws Exception
     {
         final SqlHandle handle = new SqlHandle( source.newDataSource() );
-        this.handles.add( handle );
+        this.registry.add( handle );
         return handle;
     }
 }

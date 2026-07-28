@@ -67,4 +67,3 @@ function dispose() {
 }
 
 exports.dispose = dispose;
-__.disposer(dispose);
