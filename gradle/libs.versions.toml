@@ -1,4 +1,5 @@
 [versions]
+graalvm = "25.0.3"
 h2 = "2.4.240"
 hikaricp = "7.1.0"
 jdbi = "2.78"
@@ -6,6 +7,7 @@ junit = "6.1.2"
 mockito = "5.23.0"
 
 [libraries]
+graalvm-js = { module = "org.graalvm.polyglot:js", version.ref = "graalvm" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
 hikaricp = { module = "com.zaxxer:HikariCP", version.ref = "hikaricp" }
 jdbi = { module = "org.jdbi:jdbi", version.ref = "jdbi" }
