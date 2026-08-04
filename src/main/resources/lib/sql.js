@@ -52,13 +52,13 @@ Handle.prototype.execute = function (sql) {
 
 exports.connect = function (params) {
     var source = __.newBean('com.enonic.lib.sql.SqlSource');
-    source.url = required(params, 'url');
-    source.driver = required(params, 'driver');
-    source.maxPoolSize = optional(params, 'maxPoolSize', 10);
-    source.minPoolSize = optional(params, 'minPoolSize', 0);
-    source.poolName = optional(params, 'poolName', null);
-    source.user = params.user;
-    source.password = params.password;
+    source.setUrl(required(params, 'url'));
+    source.setDriver(required(params, 'driver'));
+    source.setMaxPoolSize(optional(params, 'maxPoolSize', 10));
+    source.setMinPoolSize(optional(params, 'minPoolSize', 0));
+    source.setPoolName(optional(params, 'poolName', null));
+    source.setUser(__.nullOrValue(params.user));
+    source.setPassword(__.nullOrValue(params.password));
     return new Handle(factory.create(source));
 };
 
@@ -67,4 +67,3 @@ function dispose() {
 }
 
 exports.dispose = dispose;
-__.disposer(dispose);

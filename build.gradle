@@ -8,7 +8,7 @@ plugins {
 
 repositories {
     mavenCentral()
-    xp.enonicRepo()
+    xp.enonicRepo('dev')
 }
 
 dependencies {
@@ -21,6 +21,10 @@ dependencies {
     testImplementation libs.mockito.core
     testImplementation "com.enonic.xp:testing:${xpVersion}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+xp {
+    scriptEngines = ['Nashorn', 'GraalJS']
 }
 
 test {
