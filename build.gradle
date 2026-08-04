@@ -21,24 +21,15 @@ dependencies {
     testImplementation libs.mockito.core
     testImplementation "com.enonic.xp:testing:${xpVersion}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testRuntimeOnly libs.graalvm.js
+}
+
+xp {
+    scriptEngines = ['Nashorn', 'GraalJS']
 }
 
 test {
     useJUnitPlatform()
 }
-
-def testGraalJs = tasks.register('testGraalJs', Test) {
-    group = 'verification'
-    description = 'Runs tests with the GraalJS script engine.'
-    useJUnitPlatform()
-    testClassesDirs = sourceSets.test.output.classesDirs
-    classpath = sourceSets.test.runtimeClasspath
-    systemProperty 'xp.script-engine', 'GraalJS'
-    shouldRunAfter test
-}
-
-check.dependsOn testGraalJs
 
 jacocoTestReport {
     reports {
