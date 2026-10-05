@@ -1,5 +1,5 @@
 [versions]
-h2 = "2.5.250"
+h2 = "2.5.252"
 hikaricp = "7.1.0"
 jdbi = "2.78"
 junit = "6.1.3"
